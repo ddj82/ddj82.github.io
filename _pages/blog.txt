@@ -1,0 +1,8 @@
+---
+layout: posts
+title: "Blog"
+permalink: /blog/
+---
+
+# 📌 블로그 글 모음
+최근 작성한 블로그 글들이 여기에 표시됩니다.
