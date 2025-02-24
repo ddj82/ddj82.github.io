@@ -18,9 +18,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: ddj82 블로그
-email: azmzm@naver.com
-description: 개발과 공부를 기록하는 블로그입니다.
+title: "ddj82 블로그"
+email: "azmzm@naver.com"
+description: "개발과 공부를 기록하는 블로그입니다."
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  ddj82
