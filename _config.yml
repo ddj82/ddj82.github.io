@@ -10,8 +10,7 @@ url: "https://ddj82.github.io"  # GitHub Pages 주소
 # 소셜 정보 (필요 시 수정)
 github_username: "ddj82"
 
-# Alembic 테마 적용
-remote_theme: "daviddarnes/alembic"
+theme: minima
 
 # 플러그인 설정 (GitHub Pages 호환 가능)
 plugins:
@@ -21,17 +20,6 @@ plugins:
   - jekyll-feed          # RSS 피드 지원
   - jekyll-paginate      # 페이지네이션 지원
   - jekyll-archives      # 블로그 아카이브 기능
-
-# 네비게이션 메뉴 설정
-navigation_header:
-  - title: "Home"
-    url: "/"
-  - title: "About"
-    url: "/about/"
-  - title: "Blog"
-    url: "/blog/"
-  - title: "Contact"
-    url: "/contact/"
 
 # 기본 설정
 permalink: /:categories/:title/

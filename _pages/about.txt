@@ -1,8 +1,0 @@
----
-layout: page
-title: "About Me"
-permalink: /about/
----
-
-# 👋 안녕하세요 김동준입니다.
-이 블로그는 개발과 공부 내용을 기록하는 공간입니다.
