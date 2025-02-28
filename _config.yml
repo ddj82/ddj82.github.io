@@ -3,7 +3,7 @@ author: GitHub User
 email: "azmzm@naver.com"
 description: "개발과 공부를 기록하는 블로그입니다."
 show_excerpts: true # set to true to show excerpts on the homepage
-
+future: true
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
 sass:
