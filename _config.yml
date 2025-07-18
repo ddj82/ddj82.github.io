@@ -3,7 +3,6 @@ author: GitHub User
 email: "azmzm@naver.com"
 description: "개발과 공부를 기록하는 블로그입니다."
 show_excerpts: true
-baseurl: /texture
 
 sass:
   sass_dir: _sass
