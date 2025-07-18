@@ -24,9 +24,7 @@ texture:
 header_pages:
   - about.md
 
-# Build settings
-remote_theme: texture
+remote_theme: samarsault/texture
 
 plugins:
-  - jekyll-seo-tag
-#  - jekyll-feed
+  - jekyll-remote-theme
