@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="18dd26c7-9c73-4e8a-90f5-cff06e9f0a71" name="변경" comment="[dj][2025-07-18]">
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/image.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/nav.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/page_header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/post_header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/_begin.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/_syntax.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/_syntax.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/ext/_fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/ext/_fonts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/ext/_normalize.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/ext/_normalize.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/ext/_solarized-light.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/ext/_solarized-light.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sass/theme.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/fontello.eot" beforeDir="false" afterPath="$PROJECT_DIR$/assets/font/fontello.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/fontello.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/font/fontello.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/fontello.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/assets/font/fontello.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/fontello.woff" beforeDir="false" afterPath="$PROJECT_DIR$/assets/font/fontello.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/fontello.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/assets/font/fontello.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/picker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/textures/black.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/textures/blue.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/textures/green.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/textures/purple.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/textures/red.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/textures/yellow.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/texture.gemspec" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ddj82&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ddj82/ddj82.github.io.git&quot;,
+    &quot;accountId&quot;: &quot;4706ee25-1739-44da-b8ff-db18b30abff0&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="301s490eUsJt5QYR9cdE3JaqnMS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/ddj82.github.io&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MTConfigurable&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\ddj82.github.io" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="18dd26c7-9c73-4e8a-90f5-cff06e9f0a71" name="변경" comment="" />
+      <created>1752806219540</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1752806219540</updated>
+      <workItem from="1752806221159" duration="2283000" />
+      <workItem from="1752809980050" duration="31000" />
+    </task>
+    <task id="LOCAL-00001" summary="수정">
+      <option name="closed" value="true" />
+      <created>1752807855519</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1752807855519</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="수정" />
+  </component>
+</project>
