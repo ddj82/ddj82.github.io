@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx", // ✅ 이거 꼭 필요!
+    "noUnusedLocals": false, // 사용 안 하는 로컬 변수 에러 끄기
+    "noUnusedParameters": false, // 사용 안 하는 매개변수 에러 끄기
+  }
+}

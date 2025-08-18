@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ddj82 블로그</title>
+  <script>
+    try {
+      const isDark = localStorage.getItem("theme-mode")
+      if (isDark && JSON.parse(isDark).state.isDarkMode) {
+        document.documentElement.classList.add("dark");
+      }
+    } catch (e) {}
+  </script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

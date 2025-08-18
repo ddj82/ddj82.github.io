@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.themeMainSet {
+    @apply bg-theme-light text-main-light dark:bg-theme-dark dark:text-main-dark;
+}
+
+.modal-animation-forwards {
+    animation: modal-fade-in 0.3s ease-out forwards;
+}
+
+.modal-animation-ease-in {
+    animation: modal-fade-in 0.3s ease-in forwards;
+}
