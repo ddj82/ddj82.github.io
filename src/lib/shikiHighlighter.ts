@@ -1,5 +1,5 @@
 // Shiki v1: 브라우저 번들에 테마/언어 포함
-import { createHighlighter, type HighlighterGeneric } from "shiki";
+import { createHighlighter } from "shiki";
 
 // ★ 사용 언어와 테마를 명시적으로 가져와서 번들에 포함
 import dracula from "shiki/themes/dracula.mjs";
@@ -12,7 +12,7 @@ import md from "shiki/langs/markdown.mjs";
 import html from "shiki/langs/html.mjs";
 import css from "shiki/langs/css.mjs";
 
-let _highlighter: HighlighterGeneric | null = null;
+let _highlighter: Awaited<ReturnType<typeof createHighlighter>> | null = null;
 
 export async function getShikiHighlighter() {
     if (_highlighter) return _highlighter;
