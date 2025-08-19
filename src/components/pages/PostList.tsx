@@ -4,11 +4,12 @@ import Post from "./Post.tsx";
 import {useMainContentStore} from "../../store/MainContentStore.tsx";
 
 export default function PostList() {
-    const {isPost, setIsPost} =useMainContentStore();
+    const {isPost, setIsPost, setIsAbout} =useMainContentStore();
     const [post, setPost] = useState<PostItem | null>(null);
 
     const handlePostOpen = (post: PostItem) => {
         setPost(post);
+        setIsAbout(false);
         setIsPost(true);
     };
 

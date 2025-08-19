@@ -7,17 +7,27 @@ import {useMainContentStore} from "../../store/MainContentStore.tsx";
 export default function SideBar() {
     const isDarkMode = useThemeStore((state) => state.isDarkMode);
     const toggleTheme = useThemeStore((state) => state.toggleTheme);
-    const {isPost, setIsPost, toggleIsAbout} =useMainContentStore();
+    const {isPost, isAbout, setIsPost, setIsAbout} =useMainContentStore();
 
     const handleLink = (link: string) => {
         window.open(link, '_blank');
     };
 
+    const handleAbout = () => {
+        if (isAbout) {
+            setIsAbout(false);
+            setIsPost(false);
+        } else {
+            setIsAbout(true);
+            setIsPost(false);
+        }
+    };
+
     return (
         <div className="min-w-56 lg:max-w-xs flex flex-col items-center gap-4 mb-8 lg:mb-0">
             <div className="flex-center">
-                <button onClick={toggleIsAbout}>
-                    김동준
+                <button onClick={handleAbout}>
+                    ddj82's blog
                 </button>
             </div>
             <div className="flex-center">

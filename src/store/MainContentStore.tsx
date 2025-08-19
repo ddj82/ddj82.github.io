@@ -4,12 +4,14 @@ interface MainContentState {
     isPost: boolean;
     setIsPost: (prop: boolean) => void;
     isAbout: boolean;
-    toggleIsAbout: () => void;
+    setIsAbout: (prop: boolean) => void;
+    // toggleIsAbout: () => void;
 }
 
 export const useMainContentStore = create<MainContentState>((set) => ({
     isPost: false,
     setIsPost: (prop: boolean) => set(() => ({isPost: prop})),
     isAbout: false,
-    toggleIsAbout: () => set((state) => ({ isAbout: !state.isAbout })),
+    setIsAbout: (prop: boolean) => set(() => ({isAbout: prop})),
+    // toggleIsAbout: () => set((state) => ({ isAbout: !state.isAbout })),
 }));

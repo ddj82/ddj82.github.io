@@ -13,25 +13,3 @@
 .modal-animation-ease-in {
     animation: modal-fade-in 0.3s ease-in forwards;
 }
-
-/* dual theme용 Shiki 변수 매핑 (문서 권장 패턴) */
-code[data-theme*=" "],
-code[data-theme*=" "] span {
-    color: var(--shiki-light);
-    /*background-color: var(--shiki-light-bg);*/
-}
-
-table code[data-theme*=" "],
-table code[data-theme*=" "] span {
-    /*padding: 5px;*/
-    border-radius: 5px;
-    @apply !text-main-light dark:!text-main-dark;
-}
-
-@media (prefers-color-scheme: dark) {
-    code[data-theme*=" "],
-    code[data-theme*=" "] span {
-        color: var(--shiki-dark);
-        /*background-color: var(--shiki-dark-bg);*/
-    }
-}

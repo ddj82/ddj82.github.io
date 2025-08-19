@@ -51,7 +51,20 @@ const Post = ({post, onClose}: PostProps) => {
                         pre: (props) => (
                             <pre {...props} className="rounded-lg overflow-auto my-4" />
                         ),
-                        code: (props) => <code {...props} />
+                        code: (props) => <code {...props} />,
+                        table: (props) => (
+                            // ✅ 스크롤이 걸릴 컨테이너
+                            <div className="not-prose overflow-x-auto -mx-4 sm:mx-0 w-full max-w-full">
+                                {/* ✅ 표는 내용에 맞춰 넓어지도록 */}
+                                <table
+                                    {...props}
+                                    className="w-max min-w-[48rem] table-auto border-collapse"
+                                />
+                            </div>
+                        ),
+                        thead: (p) => <thead {...p} />,
+                        th: (p) => <th {...p} className="px-3 py-2 whitespace-nowrap border-b text-left" />,
+                        td: (p) => <td {...p} className="px-3 py-2 border-b align-top break-words" />,
                     }}
                 >
                     {post.content}

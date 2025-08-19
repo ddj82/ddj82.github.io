@@ -3,7 +3,7 @@ import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import {useMainContentStore} from "../../store/MainContentStore.tsx";
 
 const About = () => {
-    const {toggleIsAbout} =useMainContentStore();
+    const {setIsAbout} =useMainContentStore();
 
     return (
         <div>
@@ -11,7 +11,7 @@ const About = () => {
                 <div className="flex items-center justify-end">
                     <button
                         className="p-2 rounded-full"
-                        onClick={toggleIsAbout}
+                        onClick={() => setIsAbout(false)}
                     >
                         <FontAwesomeIcon icon={faTimes} className="text-lg"/>
                     </button>
