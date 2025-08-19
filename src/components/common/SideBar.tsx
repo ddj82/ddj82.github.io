@@ -31,18 +31,27 @@ export default function SideBar() {
                 </button>
             </div>
             <div className="flex-center">
-                <button type="button" onClick={() => handleLink('https://github.com/ddj82/')}>
+                <button
+                    type="button"
+                    onClick={() => handleLink('https://github.com/ddj82/')}
+                >
                     <FontAwesomeIcon icon={faGithub} className="w-6 h-6" />
                 </button>
             </div>
             <div className="flex-center">
-                <button type="button" onClick={toggleTheme} className="">
+                <button
+                    type="button"
+                    onClick={toggleTheme}
+                >
                     {isDarkMode ? <Moon className="w-6 h-6"/> : <Sun className="w-6 h-6"/>}
                 </button>
             </div>
             {isPost && (
-                <div className="flex-center">
-                    <button type="button" onClick={() => setIsPost(false)}>
+                <div className="flex-center post-arrowLeft-btn">
+                    <button
+                        type="button"
+                        onClick={() => setIsPost(false)}
+                    >
                         <ArrowLeft className="w-7 h-7"/>
                     </button>
                 </div>

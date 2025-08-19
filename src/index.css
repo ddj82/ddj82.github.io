@@ -13,3 +13,11 @@
 .modal-animation-ease-in {
     animation: modal-fade-in 0.3s ease-in forwards;
 }
+
+.post-arrowLeft-btn {
+    display: none;
+    
+    @media (min-width: 1024px) {
+        display: block;
+    }
+}

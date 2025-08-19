@@ -19,57 +19,63 @@ const Post = ({post, onClose}: PostProps) => {
         <div>
             <div className="flex flex-col gap-4 pb-20">
                 <div className="flex items-center justify-between">
-                    <div className="w-full text-lg md:text-xxl font-semibold">
+                    <div className="w-full text-lg lg:text-xl xl:text-xxl font-semibold">
                         {post.frontmatter.title}
                     </div>
                     <button
                         className="p-2 rounded-full"
                         onClick={onClose}
                     >
-                        <FontAwesomeIcon icon={faTimes} className="text-lg"/>
+                        <FontAwesomeIcon icon={faTimes} className="text-xxl"/>
                     </button>
                 </div>
-                <div className="flex justify-between pb-2 border-b border-gray-400">
-                    <div className="text-xs md:text-sm">
+                <div className="flex flex-col gap-2 md:flex-row md:gap-0 md:justify-between">
+                    <div className="text-sm md:text-base">
                         {post.frontmatter.date}
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-1">
                         {post.frontmatter.categories?.map((value, index) => (
-                            <div key={index} className="bg-codeBlockLight dark:bg-gray-700 p-1 px-2 rounded-lg text-xs md:text-sm">
+                            <div key={index}
+                                 className="bg-codeBlockLight dark:bg-gray-700 p-1 px-2 rounded-lg text-xs md:text-sm w-fit">
                                 {value}
                             </div>
                         ))}
                     </div>
                 </div>
+                <hr/>
             </div>
 
-            <article className="prose max-w-none dark:prose-invert">
-                <MarkdownHooks
-                    remarkPlugins={[remarkGfm]}
-                    rehypePlugins={[[rehypePrettyCode, prettyCodeOptions]]}
-                    components={{
-                        pre: (props) => (
-                            <pre {...props} className="rounded-lg overflow-auto my-4" />
-                        ),
-                        code: (props) => <code {...props} />,
-                        table: (props) => (
-                            // ✅ 스크롤이 걸릴 컨테이너
-                            <div className="not-prose overflow-x-auto -mx-4 sm:mx-0 w-full max-w-full">
-                                {/* ✅ 표는 내용에 맞춰 넓어지도록 */}
-                                <table
-                                    {...props}
-                                    className="w-max min-w-[48rem] table-auto border-collapse"
-                                />
-                            </div>
-                        ),
-                        thead: (p) => <thead {...p} />,
-                        th: (p) => <th {...p} className="px-3 py-2 whitespace-nowrap border-b text-left" />,
-                        td: (p) => <td {...p} className="px-3 py-2 border-b align-top break-words" />,
-                    }}
-                >
-                    {post.content}
-                </MarkdownHooks>
-            </article>
+            <div
+                // className="text-sm md:text-base"
+            >
+                <article className="prose max-w-none dark:prose-invert">
+                    <MarkdownHooks
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[[rehypePrettyCode, prettyCodeOptions]]}
+                        components={{
+                            pre: (props) => (
+                                <pre {...props} className="rounded-lg overflow-auto my-4" />
+                            ),
+                            code: (props) => <code {...props} />,
+                            table: (props) => (
+                                // ✅ 스크롤이 걸릴 컨테이너
+                                <div className="not-prose overflow-x-auto -mx-4 sm:mx-0 w-full max-w-full">
+                                    {/* ✅ 표는 내용에 맞춰 넓어지도록 */}
+                                    <table
+                                        {...props}
+                                        className="w-max min-w-[48rem] table-auto border-collapse"
+                                    />
+                                </div>
+                            ),
+                            thead: (p) => <thead {...p} />,
+                            th: (p) => <th {...p} className="px-3 py-2 whitespace-nowrap border-b text-left" />,
+                            td: (p) => <td {...p} className="px-3 py-2 border-b align-top break-words" />,
+                        }}
+                    >
+                        {post.content}
+                    </MarkdownHooks>
+                </article>
+            </div>
         </div>
     );
 };

@@ -22,7 +22,12 @@ function App() {
     }, [isDarkMode]);
 
     return (
-        <div className="min-h-screen transition-colors scrollbar-hidden relative themeMainSet py-20 px-10 md:p-20 flex flex-col lg:flex-row">
+        <div
+            className="min-h-screen transition-colors scrollbar-hidden relative
+            themeMainSet
+            p-5 lg:py-10 xl:px-20
+            flex flex-col lg:flex-row"
+        >
             <SideBar/>
             <MainPage/>
         </div>
