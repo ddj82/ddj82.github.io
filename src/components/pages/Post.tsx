@@ -1,5 +1,5 @@
 import {type PostItem} from '../../types/markdown';
-import ReactMarkdown, { MarkdownHooks } from 'react-markdown';
+import { MarkdownHooks } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
