@@ -39,34 +39,34 @@ export default {
                 // 다크 모드 글자색
                 'main-dark': "#F3F4F6", // gray-100
             },
-            typography: ({ theme }) => ({
-                DEFAULT: {
-                    css: {
-                        /* 코드블록(``` ... ```) 배경 */
-                        pre: {
-                            borderRadius: theme("borderRadius.lg"),
-                            padding: `${theme("spacing.4")} ${theme("spacing.5")}`,
-                        },
-
-                        '--tw-prose-pre-bg': theme('colors.codeBlockLight'),
-
-                        /* 코드블록 내 텍스트 색 */
-                        'pre code': {
-                            color: theme('colors.zinc.900'),
-                        },
-                    },
-                },
-                invert: {
-                    /* 다크모드 시 코드블록 배경 */
-                    css: {
-                        '--tw-prose-pre-bg': theme('colors.slate.800'),
-
-                        'pre code': {
-                            color: theme('colors.zinc.100'),
-                        },
-                    },
-                },
-            }),
+            // typography: ({ theme }) => ({
+            //     DEFAULT: {
+            //         css: {
+            //             /* 코드블록(``` ... ```) 배경 */
+            //             pre: {
+            //                 borderRadius: theme("borderRadius.lg"),
+            //                 // padding: `${theme("spacing.4")} ${theme("spacing.5")}`,
+            //             },
+            //
+            //             // '--tw-prose-pre-bg': theme('colors.codeBlockLight'),
+            //
+            //             /* 코드블록 내 텍스트 색 */
+            //             'pre code': {
+            //                 // color: theme('colors.zinc.900'),
+            //             },
+            //         },
+            //     },
+            //     invert: {
+            //         /* 다크모드 시 코드블록 배경 */
+            //         css: {
+            //             // '--tw-prose-pre-bg': theme('colors.slate.800'),
+            //
+            //             'pre code': {
+            //                 // color: theme('colors.zinc.100'),
+            //             },
+            //         },
+            //     },
+            // }),
         },
     },
     plugins: [

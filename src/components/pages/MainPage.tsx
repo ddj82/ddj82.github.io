@@ -14,7 +14,7 @@ const MainPage = () => {
     };
 
     return (
-        <div className="mx-20 w-full">
+        <div className="lg:mx-20 lg:w-full min-w-0">
             {renderContent()}
         </div>
     );

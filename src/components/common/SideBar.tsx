@@ -1,5 +1,5 @@
 import {useThemeStore} from "../../store/themeStore.ts";
-import {Moon, Sun} from "lucide-react";
+import {ArrowLeft, Moon, Sun} from "lucide-react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub} from "@fortawesome/free-brands-svg-icons";
 import {useMainContentStore} from "../../store/MainContentStore.tsx";
@@ -7,14 +7,14 @@ import {useMainContentStore} from "../../store/MainContentStore.tsx";
 export default function SideBar() {
     const isDarkMode = useThemeStore((state) => state.isDarkMode);
     const toggleTheme = useThemeStore((state) => state.toggleTheme);
-    const {toggleIsAbout} =useMainContentStore();
+    const {isPost, setIsPost, toggleIsAbout} =useMainContentStore();
 
     const handleLink = (link: string) => {
         window.open(link, '_blank');
     };
 
     return (
-        <div className="z-[10005] min-w-56 max-w-xs flex flex-col items-center gap-4">
+        <div className="min-w-56 lg:max-w-xs flex flex-col items-center gap-4 mb-8 lg:mb-0">
             <div className="flex-center">
                 <button onClick={toggleIsAbout}>
                     김동준
@@ -30,6 +30,13 @@ export default function SideBar() {
                     {isDarkMode ? <Moon className="w-6 h-6"/> : <Sun className="w-6 h-6"/>}
                 </button>
             </div>
+            {isPost && (
+                <div className="flex-center">
+                    <button type="button" onClick={() => setIsPost(false)}>
+                        <ArrowLeft className="w-7 h-7"/>
+                    </button>
+                </div>
+            )}
         </div>
     );
 };
