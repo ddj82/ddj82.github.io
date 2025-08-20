@@ -31,6 +31,10 @@ jobs:
       - name: Build
         run: npm run build   # Vite 기준: dist 출력
 
+      # ❗ 404.html 생성(= index.html 복사)
+      - name: Create 404.html for SPA routing
+        run: cp dist/index.html dist/404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

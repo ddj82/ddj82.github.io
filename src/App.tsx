@@ -1,7 +1,6 @@
 import {useThemeStore} from "./store/themeStore.ts";
 import {useEffect} from "react";
-import MainPage from "./components/pages/MainPage.tsx";
-import SideBar from "./components/common/SideBar.tsx";
+import AppRouter from "./router/AppRouter.tsx";
 
 function App() {
     const isDarkMode = useThemeStore((state) => state.isDarkMode);
@@ -23,17 +22,7 @@ function App() {
 
     return (
         <div className="min-h-screen transition-colors themeMainSet">
-            <div
-                className="
-                  mx-auto max-w-screen-xl
-                  grid grid-rows-[auto,1fr] lg:grid-rows-1
-                  lg:grid-cols-[auto,1fr]
-                  lg:p-10 xl:px-20
-                "
-            >
-                <SideBar/>
-                <MainPage/>
-            </div>
+            <AppRouter/>
         </div>
     )
 }

@@ -1,19 +1,17 @@
-import {type PostItem} from '../../types/markdown';
+import {posts} from '../../types/markdown';
 import { MarkdownHooks } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import rehypePrettyCode from 'rehype-pretty-code';
 import { prettyCodeOptions } from '../../lib/prettyCodeOptions';
+import {useParams} from "react-router-dom";
 
-interface PostProps {
-    post: PostItem;
-    onClose: () => void;
-}
+const Post = () => {
+    const { slug } = useParams<{ slug: string }>();
+    const post = posts.find(p => p.slug === slug);
 
-const Post = ({post, onClose}: PostProps) => {
-
-    if (!post) return <div>해당 글을 찾을 수 없습니다.</div>;
+    if (!post) {
+        return <div>해당 글을 찾을 수 없습니다.</div>;
+    }
 
     return (
         <div>
@@ -22,12 +20,6 @@ const Post = ({post, onClose}: PostProps) => {
                     <div className="w-full sm:text-lg lg:text-xl xl:text-xxl font-semibold">
                         {post.frontmatter.title}
                     </div>
-                    <button
-                        className="p-2 rounded-full hidden lg:block"
-                        onClick={onClose}
-                    >
-                        <FontAwesomeIcon icon={faTimes} className="text-xxl"/>
-                    </button>
                 </div>
                 <div className="flex flex-col gap-2 md:flex-row md:gap-0 md:justify-between">
                     <div className="text-sm md:text-base">
