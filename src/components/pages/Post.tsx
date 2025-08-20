@@ -17,7 +17,7 @@ const Post = ({post, onClose}: PostProps) => {
 
     return (
         <div>
-            <div className="flex flex-col gap-4 pb-20">
+            <div className="flex flex-col gap-4 pb-10">
                 <div className="flex items-center justify-between">
                     <div className="w-full sm:text-lg lg:text-xl xl:text-xxl font-semibold">
                         {post.frontmatter.title}
