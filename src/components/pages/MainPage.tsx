@@ -14,9 +14,9 @@ const MainPage = () => {
     };
 
     return (
-        <div className="lg:mx-20 lg:w-full min-w-0">
+        <main className="row-start-2 lg:row-start-1 lg:col-start-2 min-w-0 p-5 lg:p-0">
             {renderContent()}
-        </div>
+        </main>
     );
 };
 

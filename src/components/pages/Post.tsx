@@ -23,7 +23,7 @@ const Post = ({post, onClose}: PostProps) => {
                         {post.frontmatter.title}
                     </div>
                     <button
-                        className="p-2 rounded-full"
+                        className="p-2 rounded-full hidden lg:block"
                         onClick={onClose}
                     >
                         <FontAwesomeIcon icon={faTimes} className="text-xxl"/>

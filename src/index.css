@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: "GowunDodum";
+    font-weight: normal;
+    src: url("./fonts/고운돋음체.ttf") format("truetype");
+}
+@font-face {
+    font-family: "MaruBuri";
+    font-weight: normal;
+    src: url("./fonts/마루부리체.ttf") format("truetype");
+}
+@font-face {
+    font-family: "OmyuPretty";
+    font-weight: normal;
+    src: url("./fonts/오뮤다예쁨체.ttf") format("truetype");
+}
+@font-face {
+    font-family: "LeeSeoyoon";
+    font-weight: normal;
+    src: url("./fonts/이서윤체.ttf") format("truetype");
+}
+
+body {
+    font-family: "MaruBuri";
+}
+
 .themeMainSet {
     @apply bg-theme-light text-main-light dark:bg-theme-dark dark:text-main-dark;
 }

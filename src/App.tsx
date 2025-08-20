@@ -22,14 +22,18 @@ function App() {
     }, [isDarkMode]);
 
     return (
-        <div
-            className="min-h-screen transition-colors scrollbar-hidden relative
-            themeMainSet
-            p-5 lg:py-10 xl:px-20
-            flex flex-col lg:flex-row"
-        >
-            <SideBar/>
-            <MainPage/>
+        <div className="min-h-screen transition-colors themeMainSet">
+            <div
+                className="
+                  mx-auto max-w-screen-xl
+                  grid grid-rows-[auto,1fr] lg:grid-rows-1
+                  lg:grid-cols-[auto,1fr]
+                  lg:p-10 xl:px-20
+                "
+            >
+                <SideBar/>
+                <MainPage/>
+            </div>
         </div>
     )
 }
