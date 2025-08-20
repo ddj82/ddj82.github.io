@@ -23,6 +23,10 @@
     src: url("./fonts/이서윤체.ttf") format("truetype");
 }
 
+html {
+    @apply scrollbar-hidden
+}
+
 body {
     font-family: "MaruBuri";
 }
