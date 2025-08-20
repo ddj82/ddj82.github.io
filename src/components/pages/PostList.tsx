@@ -25,7 +25,7 @@ export default function PostList() {
                         <li key={p.slug} className="flex flex-col gap-2">
                             <div className="w-full">
                                 <button type="button" onClick={() => handlePostOpen(p)} className="w-full">
-                                    <div className="text-start text-lg font-semibold">
+                                    <div className="text-start sm:text-lg font-semibold">
                                         {p.frontmatter.title}
                                     </div>
                                 </button>
@@ -36,8 +36,12 @@ export default function PostList() {
                                 </div>
                                 <div className="flex gap-1">
                                     {p.frontmatter.categories?.map((value, index) => (
-                                        <span key={index}
-                                             className="bg-codeBlockLight dark:bg-gray-700 p-1 px-2 rounded-lg text-xs md:text-sm w-fit">
+                                        <span
+                                            key={index}
+                                            className="bg-codeBlockLight dark:bg-gray-700 rounded-lg
+                                            p-1 px-2
+                                            text-xxs sm:text-xs md:text-sm w-fit"
+                                        >
                                             {value}
                                         </span>
                                     ))}

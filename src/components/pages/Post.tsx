@@ -19,7 +19,7 @@ const Post = ({post, onClose}: PostProps) => {
         <div>
             <div className="flex flex-col gap-4 pb-20">
                 <div className="flex items-center justify-between">
-                    <div className="w-full text-lg lg:text-xl xl:text-xxl font-semibold">
+                    <div className="w-full sm:text-lg lg:text-xl xl:text-xxl font-semibold">
                         {post.frontmatter.title}
                     </div>
                     <button
@@ -35,8 +35,12 @@ const Post = ({post, onClose}: PostProps) => {
                     </div>
                     <div className="flex gap-1">
                         {post.frontmatter.categories?.map((value, index) => (
-                            <div key={index}
-                                 className="bg-codeBlockLight dark:bg-gray-700 p-1 px-2 rounded-lg text-xs md:text-sm w-fit">
+                            <div
+                                key={index}
+                                className="bg-codeBlockLight dark:bg-gray-700 rounded-lg
+                                p-1 px-2
+                                text-xxs sm:text-xs md:text-sm w-fit"
+                            >
                                 {value}
                             </div>
                         ))}
@@ -59,7 +63,7 @@ const Post = ({post, onClose}: PostProps) => {
                             code: (props) => <code {...props} />,
                             table: (props) => (
                                 // ✅ 스크롤이 걸릴 컨테이너
-                                <div className="not-prose overflow-x-auto -mx-4 sm:mx-0 w-full max-w-full">
+                                <div className="not-prose overflow-x-auto sm:mx-0 w-full max-w-full">
                                     {/* ✅ 표는 내용에 맞춰 넓어지도록 */}
                                     <table
                                         {...props}
