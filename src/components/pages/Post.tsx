@@ -13,7 +13,7 @@ interface PostProps {
 
 const Post = ({post, onClose}: PostProps) => {
 
-    if (!post) return <div>Not found</div>;
+    if (!post) return <div>해당 글을 찾을 수 없습니다.</div>;
 
     return (
         <div>
@@ -49,9 +49,7 @@ const Post = ({post, onClose}: PostProps) => {
                 <hr/>
             </div>
 
-            <div
-                // className="text-sm md:text-base"
-            >
+            <div>
                 <article className="prose max-w-none dark:prose-invert">
                     <MarkdownHooks
                         remarkPlugins={[remarkGfm]}

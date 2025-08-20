@@ -52,7 +52,7 @@ export const posts: PostItem[] =
                 ? [String(data.categories)]
                 : [];
 
-        // date는 문자열 유지(파싱은 화면에서 필요 시)
+        // date는 문자열 유지
         const date =
             typeof data.date === 'string'
                 ? data.date
@@ -67,9 +67,10 @@ export const posts: PostItem[] =
         };
 
         return { slug, path, content, frontmatter };
-    })
-    // 최신 글이 위로 오도록 날짜 내림차순 정렬
-    .sort(
-        (a, b) =>
-            new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
-    );
+    }).sort((a, b) => {
+        const d = b.frontmatter.date.localeCompare(a.frontmatter.date); // 'YYYY-MM-DD' 문자열은 사전식=시간순
+        if (d !== 0) return d;
+        return b.slug.localeCompare(a.slug, undefined, { numeric: true, sensitivity: 'base' });
+    });
+
+;
