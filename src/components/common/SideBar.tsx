@@ -144,7 +144,7 @@ export default function SideBar() {
                                 <div
                                     className="
                                     flex flex-col items-start gap-2 rounded-lg py-2 px-3
-                                    bg-theme-light/30 dark:bg-theme-dark/30 backdrop-blur-lg
+                                    bg-theme-light/30 dark:bg-theme-dark/30
                                     border border-black/30 dark:border-white/30
                                     lg:p-0 lg:bg-transparent lg:border-none
                                     "
