@@ -5,30 +5,58 @@
 @font-face {
     font-family: "GowunDodum";
     font-weight: normal;
-    src: url("./fonts/고운돋음체.ttf") format("truetype");
+    src: url("./fonts/고운돋음체.ttf") format("woff2");
+    font-display: swap;
 }
 @font-face {
     font-family: "MaruBuri";
     font-weight: normal;
-    src: url("./fonts/마루부리체.ttf") format("truetype");
+    src: url("./fonts/마루부리체.ttf") format("woff2");
+    font-display: swap;
 }
 @font-face {
     font-family: "OmyuPretty";
     font-weight: normal;
-    src: url("./fonts/오뮤다예쁨체.ttf") format("truetype");
+    src: url("./fonts/오뮤다예쁨체.ttf") format("woff2");
+    font-display: swap;
 }
 @font-face {
     font-family: "LeeSeoyoon";
     font-weight: normal;
-    src: url("./fonts/이서윤체.ttf") format("truetype");
+    src: url("./fonts/이서윤체.ttf") format("woff2");
+    font-display: swap;
 }
 
 html {
     @apply scrollbar-hidden
 }
 
+/* 1) 기본 폰트 스택을 별도의 fallback 변수로 분리 */
+:root {
+    --app-font-fallback: "GowunDodum", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple SD Gothic Neo",
+    "Malgun Gothic", "맑은 고딕", "Noto Sans KR", sans-serif;
+
+    /* 2) 실제로 사용할 변수는 기본값을 fallback으로 채움 */
+    --app-font: var(--app-font-fallback);
+}
+
+/* 3) 전역 적용 */
 body {
-    font-family: "GowunDodum";
+    font-family: var(--app-font);
+}
+
+/* 4) 선택별 매핑: 자기참조 금지! 항상 fallback 변수로만 이어 붙이기 */
+html[data-font="MaruBuri"] {
+    --app-font: "MaruBuri", var(--app-font-fallback);
+}
+
+html[data-font="OmyuPretty"] {
+    --app-font: "OmyuPretty", var(--app-font-fallback);
+}
+
+html[data-font="LeeSeoyoon"] {
+    --app-font: "LeeSeoyoon", var(--app-font-fallback);
 }
 
 .themeMainSet {

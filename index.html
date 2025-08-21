@@ -12,6 +12,16 @@
         document.documentElement.classList.add("dark");
       }
     } catch (e) {}
+
+    (function () {
+      try {
+        var v = localStorage.getItem("app-font");
+        var ok = ["GowunDodum","MaruBuri","OmyuPretty","LeeSeoyoon"];
+        if (v && ok.indexOf(v) !== -1 && v !== "GowunDodum") {
+          document.documentElement.setAttribute("data-font", v);
+        }
+      } catch(e) {}
+    })();
   </script>
 </head>
   <body>

@@ -1,4 +1,4 @@
-import {posts} from '../../types/markdown';
+import {posts} from '../../lib/markdown.ts';
 import { MarkdownHooks } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';

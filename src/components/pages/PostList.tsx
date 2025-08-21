@@ -1,4 +1,4 @@
-import {type PostItem, posts} from '../../types/markdown';
+import {type PostItem, posts} from '../../lib/markdown.ts';
 import {useNavigate} from "react-router-dom";
 
 export default function PostList() {

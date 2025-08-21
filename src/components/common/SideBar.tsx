@@ -3,11 +3,33 @@ import {Moon, Sun, User} from "lucide-react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub} from "@fortawesome/free-brands-svg-icons";
 import {useNavigate} from "react-router-dom";
+import {faFont} from "@fortawesome/free-solid-svg-icons";
+import {useEffect, useRef, useState} from "react";
+import AccordionItem from "../../util/AccordionItem.tsx";
+import {
+    FONT_STORAGE_KEY,
+    DEFAULT_FONT,
+    FONT_OPTIONS,
+    type FontName,
+    isFontName,
+    applyFont,
+} from "../../lib/font.ts"
 
 export default function SideBar() {
     const navigate = useNavigate();
     const isDarkMode = useThemeStore((state) => state.isDarkMode);
     const toggleTheme = useThemeStore((state) => state.toggleTheme);
+    const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+    const wrapperRef = useRef<HTMLDivElement>(null);
+    const [currentFont, setCurrentFont] = useState<FontName>(DEFAULT_FONT);
+
+    // 마운트 시 저장된 폰트 복원
+    useEffect(() => {
+        const saved = localStorage.getItem(FONT_STORAGE_KEY);
+        const initial = isFontName(saved) ? (saved as FontName) : DEFAULT_FONT;
+        setCurrentFont(initial);
+        applyFont(initial);
+    }, []);
 
     const handleLink = (link: string) => {
         window.open(link, '_blank');
@@ -16,6 +38,38 @@ export default function SideBar() {
     const handleLogo = () => {
         navigate('/');
         window.location.reload();
+    };
+
+    const toggleAccordion = () => {
+        setIsAccordionOpen((prev) => !prev);
+    };
+
+    const closeAccordion = () => {
+        setIsAccordionOpen(false);
+    };
+
+    useEffect(() => {
+        const listener = (event: MouseEvent | TouchEvent) => {
+            if (!wrapperRef.current || wrapperRef.current.contains(event.target as Node)) {
+                return;
+            }
+            closeAccordion();
+        };
+
+        document.addEventListener("mousedown", listener);
+        document.addEventListener("touchstart", listener);
+
+        return () => {
+            document.removeEventListener("mousedown", listener);
+            document.removeEventListener("touchstart", listener);
+        };
+    }, []);
+
+    const handleFontChange = (font: FontName) => {
+        setCurrentFont(font);
+        applyFont(font);
+        localStorage.setItem(FONT_STORAGE_KEY, font);
+        setIsAccordionOpen(false);
     };
 
     return (
@@ -76,6 +130,32 @@ export default function SideBar() {
                     >
                         <User className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7"/>
                     </button>
+
+                    <div ref={wrapperRef}>
+                        <button
+                            type="button"
+                            onClick={toggleAccordion}
+                            className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7"
+                        >
+                            <FontAwesomeIcon icon={faFont} className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
+                        </button>
+
+                        <AccordionItem isOpen={isAccordionOpen}>
+                            <div className="flex flex-col items-start gap-1">
+                                {FONT_OPTIONS.map((f) => (
+                                    <button
+                                        key={f}
+                                        type="button"
+                                        onClick={() => handleFontChange(f)}
+                                        aria-pressed={currentFont === f}
+                                        className={currentFont === f ? "font-bold" : ""}
+                                    >
+                                        {f}
+                                    </button>
+                                ))}
+                            </div>
+                        </AccordionItem>
+                    </div>
 
                     <button
                         type="button"
