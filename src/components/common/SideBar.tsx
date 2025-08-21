@@ -83,7 +83,6 @@ export default function SideBar() {
                 sticky top-0
                 w-full
                 p-5 border-b
-                bg-[rgb(var(--bg-opacity,255)_/_var(--tw-bg-opacity,1))]/80
                 backdrop-blur-lg
                 flex items-center justify-between gap-3
         
@@ -131,7 +130,7 @@ export default function SideBar() {
                         <User className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7"/>
                     </button>
 
-                    <div ref={wrapperRef}>
+                    <div ref={wrapperRef} className="flex-center lg:flex-col lg:items-start lg:gap-2 relative">
                         <button
                             type="button"
                             onClick={toggleAccordion}
@@ -140,21 +139,30 @@ export default function SideBar() {
                             <FontAwesomeIcon icon={faFont} className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
                         </button>
 
-                        <AccordionItem isOpen={isAccordionOpen}>
-                            <div className="flex flex-col items-start gap-1">
-                                {FONT_OPTIONS.map((f) => (
-                                    <button
-                                        key={f}
-                                        type="button"
-                                        onClick={() => handleFontChange(f)}
-                                        aria-pressed={currentFont === f}
-                                        className={currentFont === f ? "font-bold" : ""}
-                                    >
-                                        {f}
-                                    </button>
-                                ))}
-                            </div>
-                        </AccordionItem>
+                        <div className="absolute top-7 left-[-30px] lg:static z-50">
+                            <AccordionItem isOpen={isAccordionOpen}>
+                                <div
+                                    className="
+                                    flex flex-col items-start gap-2 rounded-lg py-2 px-3
+                                    bg-theme-light/30 dark:bg-theme-dark/30 backdrop-blur-lg
+                                    border border-black/30 dark:border-white/30
+                                    lg:p-0 lg:bg-transparent lg:border-none
+                                    "
+                                >
+                                    {FONT_OPTIONS.map((f) => (
+                                        <button
+                                            key={f}
+                                            type="button"
+                                            onClick={() => handleFontChange(f)}
+                                            aria-pressed={currentFont === f}
+                                            className={currentFont === f ? "font-bold underline" : ""}
+                                        >
+                                            {f}
+                                        </button>
+                                    ))}
+                                </div>
+                            </AccordionItem>
+                        </div>
                     </div>
 
                     <button
