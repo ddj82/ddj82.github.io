@@ -178,8 +178,11 @@ export default function SideBar() {
                         onClick={toggleTheme}
                         className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7"
                     >
-                        {isDarkMode ? <Moon className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7"/> :
-                            <Sun className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7"/>}
+                        {isDarkMode ?
+                            <Sun className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7"/>
+                            :
+                            <Moon className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7"/>
+                        }
                     </button>
                 </div>
             </div>
