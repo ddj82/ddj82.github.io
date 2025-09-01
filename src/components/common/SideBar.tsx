@@ -1,5 +1,5 @@
 import {useThemeStore} from "../../store/themeStore.ts";
-import {Moon, Sun, User} from "lucide-react";
+import {Gamepad2, Moon, Sun, User} from "lucide-react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub} from "@fortawesome/free-brands-svg-icons";
 import {useNavigate} from "react-router-dom";
@@ -130,13 +130,21 @@ export default function SideBar() {
                         <User className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7"/>
                     </button>
 
-                    <div ref={wrapperRef} className="flex-center lg:flex-col lg:items-start lg:gap-2 relative">
+                    <button
+                        type="button"
+                        onClick={() => navigate('/play')}
+                        className="lg:self-start w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7"
+                    >
+                        <Gamepad2 className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7"/>
+                    </button>
+
+                    <div ref={wrapperRef} className="flex-center lg:flex-col lg:items-start relative">
                         <button
                             type="button"
                             onClick={toggleAccordion}
                             className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7"
                         >
-                            <FontAwesomeIcon icon={faFont} className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
+                            <FontAwesomeIcon icon={faFont} className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7"/>
                         </button>
 
                         <div className="absolute top-7 left-[-30px] lg:static z-50">
@@ -146,7 +154,7 @@ export default function SideBar() {
                                     flex flex-col items-start gap-2 rounded-lg py-2 px-3
                                     bg-theme-light/30 dark:bg-theme-dark/30
                                     border border-black/30 dark:border-white/30
-                                    lg:p-0 lg:bg-transparent lg:border-none
+                                    lg:p-0 lg:bg-transparent lg:border-none lg:mt-2
                                     "
                                 >
                                     {FONT_OPTIONS.map((f) => (
