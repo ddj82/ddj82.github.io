@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Stage, Layer, Rect, Group, Text } from "react-konva";
+import {ArrowBigDown, ArrowBigLeft, ArrowBigRight, ArrowBigUp, IterationCw, Space} from "lucide-react";
 
 // ===== 기본 설정 =====
 const COLS = 10;
@@ -118,9 +119,10 @@ const Blocks = () => {
     const [board, setBoard] = useState<Cell[][]>(emptyBoard());
     const [piece, setPiece] = useState<Piece>(randomPiece());
     const [score, setScore] = useState(0);
-    const timerRef = useRef<number | null>(null);
     const [started, setStarted] = useState(false);
     const [gameOver, setGameOver] = useState(false);
+    const timerRef = useRef<number | null>(null);
+    const touchRef = useRef<{x:number; y:number; t:number} | null>(null);
 
     const restart = () => {
         setBoard(emptyBoard());
@@ -205,6 +207,19 @@ const Blocks = () => {
         return () => window.removeEventListener("keydown", onKey);
     }, [board, gameOver, started]);
 
+    // 공통 적용 함수 (키 입력과 동일한 규칙)
+    const applyAction = (action: "L"|"R"|"D"|"ROT") => {
+        if (!started || gameOver) return;
+        setPiece(prev => {
+            let n = { ...prev };
+            if (action === "L") n = { ...n, x: n.x - 1 };
+            if (action === "R") n = { ...n, x: n.x + 1 };
+            if (action === "D") n = { ...n, y: n.y + 1 };
+            if (action === "ROT") n = { ...n, rot: ((n.rot + 1) % 4) as 0|1|2|3 };
+            return collides(board, n) ? prev : n;
+        });
+    };
+
     // 현재 떨어지는 조각 + 보드 함께 그리기 위한 셀 맵
     const drawCells: { x: number; y: number; color: string }[] = [];
 
@@ -228,11 +243,44 @@ const Blocks = () => {
 
     const W = COLS * TILE;
     const H = ROWS * TILE;
+    const SWIPE_DIST = 20;   // px
+    const TAP_DIST   = 10;   // px
+    const TAP_TIME   = 250;  // ms
 
     return (
         <div className="flex flex-col items-center gap-3">
             <div className="text-sm text-gray-600">Score: {score}</div>
-            <Stage width={W} height={H}>
+            <Stage
+                width={W}
+                height={H}
+                style={{touchAction: "none"}}
+                onTouchStart={(e) => {
+                    const t = e.evt.touches[0];
+                    touchRef.current = {x: t.clientX, y: t.clientY, t: Date.now()};
+                }}
+                onTouchEnd={(e) => {
+                    const st = touchRef.current;
+                    if (!st) return;
+                    const t = e.evt.changedTouches[0];
+                    const dx = t.clientX - st.x, dy = t.clientY - st.y, dt = Date.now() - st.t;
+
+                    // 시작 전: 탭하면 시작
+                    if (!started && dt < 600 && Math.hypot(dx, dy) < 30) {
+                        setStarted(true);
+                        return;
+                    }
+                    if (gameOver) return;
+
+                    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > SWIPE_DIST) {
+                        applyAction(dx > 0 ? "R" : "L");
+                    } else if (dy > SWIPE_DIST) {
+                        applyAction("D");
+                    } else if (Math.abs(dx) < TAP_DIST && Math.abs(dy) < TAP_DIST && dt < TAP_TIME) {
+                        applyAction("ROT"); // 탭=회전
+                    }
+                    touchRef.current = null;
+                }}
+            >
                 <Layer listening={false}>
                     {/* 배경 그리드 */}
                     <Group>
@@ -273,29 +321,34 @@ const Blocks = () => {
                     </Group>
                     {!started && !gameOver && (
                         <Group>
-                            <Rect x={0} y={0} width={W} height={H} fill="rgba(0,0,0,0.55)" />
+                            <Rect x={0} y={0} width={W} height={H} fill="rgba(0,0,0,0.55)"/>
                             <Text
                                 x={0}
-                                y={H/2 - 40}
+                                y={H / 2 - 40}
                                 width={W}
                                 align="center"
-                                text={"Enter로 시작하세요!"}
-                                fontSize={22}
+                                text={"Enter(또는 탭)로 시작하세요!"}
+                                fontSize={18}
                                 fill="#ffffff"
                                 fontStyle="bold"
                             />
                         </Group>
                     )}
                     {gameOver && (
-                        <Group>
-                            <Rect x={0} y={0} width={W} height={H} fill="rgba(0,0,0,0.55)" />
+                        <Group
+                            onTap={()=>{
+                                restart();
+                                setStarted(true);
+                            }}
+                        >
+                            <Rect x={0} y={0} width={W} height={H} fill="rgba(0,0,0,0.55)"/>
                             <Text
                                 x={0}
                                 y={H / 2 - 40}
                                 width={W}
                                 align="center"
-                                text={"GAME OVER\nEnter로 다시 시작하세요."}
-                                fontSize={22}
+                                text={"GAME OVER\nEnter(또는 탭)로 다시 시작하세요."}
+                                fontSize={18}
                                 fill="#ffffff"
                                 fontStyle="bold"
                             />
@@ -303,8 +356,67 @@ const Blocks = () => {
                     )}
                 </Layer>
             </Stage>
-            <p className="text-xs text-gray-500">← → 이동, ↑ 회전, ↓ 소프트드랍, Space도 회전</p>
-            {gameOver && <p className="text-xs text-red-500">Enter로 다시 시작하세요.</p>}
+
+            {gameOver ?
+                <div>
+                    <p className="text-xs text-red-500 hidden md:block">Enter로 다시 시작하세요.</p>
+                    <p className="text-xs text-red-500 md:hidden">다시 시작하세요.</p>
+                </div>
+                :
+                <div>
+                    <p className="text-xs text-gray-500 hidden md:block">
+                        <span className="flex-center">
+                            <ArrowBigLeft size={18}/>
+                            <ArrowBigRight size={18} className="mr-1"/> 이동,
+                            <ArrowBigUp size={18} className="mx-1"/> 회전,
+                            <ArrowBigDown size={18} className="mx-1"/> 소프트드랍,
+                            <Space size={18} className="mx-1"/> 도 회전
+                        </span>
+                    </p>
+                    <p className="text-xs text-gray-500 md:hidden">
+                        <span className="flex-center">
+                            <ArrowBigLeft size={18}/>
+                            <ArrowBigRight size={18} className="mr-1"/> 이동,
+                            <IterationCw size={18} className="mx-1"/> 회전,
+                            <ArrowBigDown size={18} className="mx-1"/> 소프트드랍
+                        </span>
+                    </p>
+                </div>
+            }
+
+            <div
+                className="grid grid-cols-4 gap-3 md:hidden select-none"
+                style={{touchAction: "none"}}
+            >
+                <button
+                    type="button"
+                    className="p-3 rounded-md bg-neutral-200 active:scale-95"
+                    onTouchStart={() => applyAction("L")}
+                >
+                    <ArrowBigLeft size={25}/>
+                </button>
+                <button
+                    type="button"
+                    className="p-3 rounded-md bg-neutral-200 active:scale-95"
+                    onTouchStart={() => applyAction("ROT")}
+                >
+                    <IterationCw size={20}/>
+                </button>
+                <button
+                    type="button"
+                    className="p-3 rounded-md bg-neutral-200 active:scale-95"
+                    onTouchStart={() => applyAction("D")}
+                >
+                    <ArrowBigDown size={25}/>
+                </button>
+                <button
+                    type="button"
+                    className="p-3 rounded-md bg-neutral-200 active:scale-95"
+                    onTouchStart={() => applyAction("R")}
+                >
+                    <ArrowBigRight size={25}/>
+                </button>
+            </div>
         </div>
     );
 };
