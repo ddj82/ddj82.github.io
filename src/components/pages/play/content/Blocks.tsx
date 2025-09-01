@@ -248,7 +248,7 @@ const Blocks = () => {
     const TAP_TIME   = 250;  // ms
 
     return (
-        <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-3 relative">
             <div className="text-sm text-gray-600">Score: {score}</div>
             <Stage
                 width={W}
@@ -263,14 +263,18 @@ const Blocks = () => {
                     if (!st) return;
                     const t = e.evt.changedTouches[0];
                     const dx = t.clientX - st.x, dy = t.clientY - st.y, dt = Date.now() - st.t;
+                    const isTap = Math.abs(dx) < TAP_DIST && Math.abs(dy) < TAP_DIST && dt < 600;
 
-                    // 시작 전: 탭하면 시작
-                    if (!started && dt < 600 && Math.hypot(dx, dy) < 30) {
-                        setStarted(true);
+                    // 게임오버: 탭으로 재시작 허용
+                    if (gameOver) {
+                        if (isTap) { restart(); setStarted(true); }
                         return;
                     }
-                    if (gameOver) return;
 
+                    // 시작 전: 탭으로 시작
+                    if (!started && isTap) { setStarted(true); return; }
+
+                    // 스와이프/탭 제스처 처리
                     if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > SWIPE_DIST) {
                         applyAction(dx > 0 ? "R" : "L");
                     } else if (dy > SWIPE_DIST) {
@@ -385,33 +389,37 @@ const Blocks = () => {
             }
 
             <div
-                className="grid grid-cols-4 gap-3 md:hidden select-none"
+                className="
+                    grid grid-cols-4 gap-3 select-none text-black
+                    absolute bottom-10 z-50
+                    md:hidden
+                "
                 style={{touchAction: "none"}}
             >
                 <button
                     type="button"
-                    className="p-3 rounded-md bg-neutral-200 active:scale-95"
+                    className="p-3 rounded-md active:scale-95"
                     onTouchStart={() => applyAction("L")}
                 >
                     <ArrowBigLeft size={25}/>
                 </button>
                 <button
                     type="button"
-                    className="p-3 rounded-md bg-neutral-200 active:scale-95"
+                    className="p-3 rounded-md active:scale-95"
                     onTouchStart={() => applyAction("ROT")}
                 >
                     <IterationCw size={20}/>
                 </button>
                 <button
                     type="button"
-                    className="p-3 rounded-md bg-neutral-200 active:scale-95"
+                    className="p-3 rounded-md active:scale-95"
                     onTouchStart={() => applyAction("D")}
                 >
                     <ArrowBigDown size={25}/>
                 </button>
                 <button
                     type="button"
-                    className="p-3 rounded-md bg-neutral-200 active:scale-95"
+                    className="p-3 rounded-md active:scale-95"
                     onTouchStart={() => applyAction("R")}
                 >
                     <ArrowBigRight size={25}/>
