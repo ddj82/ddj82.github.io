@@ -25,6 +25,7 @@ const Fortune = () => {
                 {/*>*/}
                 {/*    오늘의 운세 뽑기*/}
                 {/*</button>*/}
+
                 {fortune ? (
                     <div className="mt-4 p-4 max-w-md text-center whitespace-pre-line">
                         {fortune}
