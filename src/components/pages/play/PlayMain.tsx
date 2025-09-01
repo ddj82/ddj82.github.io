@@ -7,13 +7,12 @@ const playList = [
         title: "오늘의 운세",
         summary: "오늘의 운세를 뽑아보자!",
     },
-
-    // {
-    //     link: "blocks",
-    //     thumbnail: "/thumbnail/blocks2.png",
-    //     title: "블록 스택",
-    //     summary: "떨어지는 블록 쌓기",
-    // },
+    {
+        link: "blocks",
+        thumbnail: "/thumbnail/blocks2.png",
+        title: "블록 스택",
+        summary: "떨어지는 블록 쌓기",
+    },
     {
         link: "coming",
         thumbnail: "/thumbnail/coming.png",
