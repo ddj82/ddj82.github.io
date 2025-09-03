@@ -13,12 +13,12 @@ const playList = [
         title: "블록 스택",
         summary: "떨어지는 블록 쌓기",
     },
-    {
-        link: "coming",
-        thumbnail: "/thumbnail/coming.png",
-        title: "준비 중",
-        summary: "준비 중",
-    },
+    // {
+    //     link: "coming",
+    //     thumbnail: "/thumbnail/coming.png",
+    //     title: "준비 중",
+    //     summary: "준비 중",
+    // },
 ];
 
 const PlayMain = () => {
